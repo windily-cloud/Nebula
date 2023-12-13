@@ -1,0 +1,21 @@
+{
+    "name": "pkmer-publish",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "dependencies": {
+        "@astrojs/starlight": "^0.15.0",
+        "astro": "^4.0.1",
+        "remark-callouts": "^2.0.0",
+        "remark-gfm": "^4.0.0",
+        "remark-math": "^6.0.0",
+        "remark-wiki-link-plus": "^1.1.1",
+        "sharp": "^0.32.5"
+    }
+}

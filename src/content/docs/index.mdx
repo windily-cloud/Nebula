@@ -1,0 +1,36 @@
+---
+title: Pkmer Publish
+description: Pkmer Publish 
+template: splash
+hero:
+    tagline: Pkmer Publish 主题发布
+    image:
+        file: ../../assets/houston.webp
+    actions:
+        - text: 查看示例
+          link: guides/example/
+          icon: right-arrow
+          variant: primary
+        - text: 阅读文档
+          link: https://starlight.astro.build
+          icon: external
+---
+
+import { Card, CardGrid } from "@astrojs/starlight/components";
+
+## 核心特性
+
+<CardGrid stagger>
+    <Card title="现代博客系统" icon="pencil">
+        支持全文搜索，RSS，标签，时间线等博客特性
+    </Card>
+    <Card title="与 Obsidian 协同" icon="add-document">
+        无缝集成 Obsidian 发布，支持双链，callout，高亮语法
+    </Card>
+    <Card title="本地优先" icon="setting">
+        本地优先，数据一切尽在掌握。
+    </Card>
+    <Card title="开源共建" icon="open-book">
+        开源，期望更多人一起共建。
+    </Card>
+</CardGrid>
