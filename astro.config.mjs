@@ -1,37 +1,43 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
-import wikiLinkPlugin from "remark-wiki-link-plus";
-import callouts from "remark-callouts";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import rehypeMathJaxSvg from "rehype-mathjax";
+import callouts from "@portaljs/remark-callouts";
+import wikiLinkPlugin from "@portaljs/remark-wiki-link";
+import { getPermalinks } from "@portaljs/remark-wiki-link";
+import remarkTextHighlight from "./src/plugins/remark-text-highlight";
 
+const permalinks = await getPermalinks("./src/content/docs");
 // https://astro.build/config
 export default defineConfig({
+    site: "https://localhost",
     integrations: [
         starlight({
             title: "Pkmer Publish",
             // Set English as the default language for this site.
-            defaultLocale: "en",
+            // defaultLocale: "en",
             locales: {
                 // English docs in `src/content/docs/en/`
-                en: {
-                    label: "English",
-                },
+                // en: {
+                //     label: "English",
+                // },
                 // Simplified Chinese docs in `src/content/docs/zh-cn/`
-                "zh-cn": {
+                root: {
                     label: "简体中文",
                     lang: "zh-CN",
                 },
             },
             social: {
-                github: 'https://github.com/withastro/starlight',
+                github: "https://github.com/withastro/starlight",
             },
             sidebar: [
                 {
-                    label: "教程",
-                    autogenerate: { directory: "guides" },
+                    label: "规划",
+                    autogenerate: { directory: "规划" },
                 },
             ],
+            customCss: ["./src/styles/base.css"],
         }),
     ],
     markdown: {
@@ -39,13 +45,22 @@ export default defineConfig({
             remarkGfm,
             remarkMath,
             callouts,
+            remarkTextHighlight(),
             [
                 wikiLinkPlugin,
                 {
-                    markdownFolder: "/src/content",
-                    hrefTemplate: (permalink) => `/${permalink}`,
+                    pathFormat: "obsidian-short",
+                    permalinks,
+                    hrefTemplate: (permalink) => {
+                        const link = permalink
+                            .replace("src/content/docs", "")
+                            .replace(" ", "-")
+                            .toLowerCase();
+                        return `${link}`;
+                    },
                 },
             ],
         ],
+        rehypePlugins: [rehypeMathJaxSvg],
     },
 });
