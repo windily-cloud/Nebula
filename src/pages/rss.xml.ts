@@ -1,5 +1,8 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
+import sanitizeHtml from 'sanitize-html';
+import MarkdownIt from 'markdown-it';
+const parser = new MarkdownIt();
 
 export async function GET(context: any) {
     const blog = await getCollection('docs');
@@ -7,12 +10,12 @@ export async function GET(context: any) {
         title: 'Buzz’s Blog',
         description: 'A humble Astronaut’s guide to the stars',
         site: context.site,
+        stylesheet: 'rss/rss.xsl',
         items: blog.map((post) => ({
             title: post.data.title,
             pubDate: new Date(post.data.uid),
             description: post.data.description,
-            // Compute RSS link from post `slug`
-            // This example assumes all posts are rendered as `/blog/[slug]` routes
+            content: sanitizeHtml(parser.render(post.body)),
             link: `/blog/${post.slug}/`,
         })),
     });
