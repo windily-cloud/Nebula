@@ -30,6 +30,7 @@ export default defineConfig({
             },
             social: {
                 github: "https://github.com/withastro/starlight",
+                rss: "https://github.com"
             },
             sidebar: [
                 {
