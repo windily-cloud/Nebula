@@ -14,7 +14,7 @@ export default defineConfig({
   site: "https://windily-cloud.github.io/Nebula/",
   base: "/Nebula",
   integrations: [starlight({
-    title: "Pkmer Publish",
+    title: "Nebula",
     // Set English as the default language for this site.
     // defaultLocale: "en",
     locales: {
