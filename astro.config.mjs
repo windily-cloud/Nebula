@@ -4,8 +4,8 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeMathJaxSvg from "rehype-mathjax";
 import callouts from "@portaljs/remark-callouts";
-import wikiLinkPlugin from "@portaljs/remark-wiki-link";
-import { getPermalinks } from "@portaljs/remark-wiki-link";
+import wikiLinkPlugin from "./src/plugins/wikilink/remarkWikiLink.ts";
+import { getPermalinks } from "./src/plugins/wikilink/getPermalinks.ts";
 import remarkTextHighlight from "./src/plugins/remark-text-highlight";
 const permalinks = await getPermalinks("./src/content/docs");
 
