@@ -11,7 +11,7 @@ const permalinks = await getPermalinks("./src/content/docs");
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://windily-cloud.github.io/Nebula/",
+  site: "https://windily-cloud.github.io",
   base: "/Nebula",
   integrations: [starlight({
     title: "Nebula",
@@ -46,7 +46,7 @@ export default defineConfig({
       permalinks,
       hrefTemplate: permalink => {
         const link = permalink.replace("src/content/docs", "").replace(" ", "-").toLowerCase();
-        return `/Nebula/${link}`;
+        return `/Nebula${link}`;
       }
     }]],
     rehypePlugins: [rehypeMathJaxSvg]
