@@ -4,6 +4,8 @@ import sanitizeHtml from 'sanitize-html';
 import MarkdownIt from 'markdown-it';
 const parser = new MarkdownIt();
 
+
+//todo: 严格限制yaml类型，否则在部署时容易报错
 export async function GET(context: any) {
     const blog = await getCollection('docs');
     return rss({
