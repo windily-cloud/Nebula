@@ -1,8 +1,8 @@
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
 const graphs = document.getElementsByClassName("mermaid");
 if (document.getElementsByClassName("mermaid").length > 0) {
-    const { default: mermaid } = await import("mermaid");
     mermaid.initialize({
-        startOnLoad: false,
+        startOnLoad: true,
         fontFamily: "var(--sans-font)",
         // @ts-ignore This works, but TS expects a enum for some reason
         theme: localStorage.getItem("isDark") === "true" ? "dark" : "default",

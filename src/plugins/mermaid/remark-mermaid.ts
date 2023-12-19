@@ -1,25 +1,32 @@
 import { visit } from 'unist-util-visit';
-import dedent from 'ts-dedent';
+import type { Plugin } from 'unified';
+import mermaid from 'mermaid';
 
-const escapeMap: Record<string, string> = {
-	'&': '&amp;',
-	'<': '&lt;',
-	'>': '&gt;',
-	'"': '&quot;',
-	"'": '&#39;',
-};
 
-const escapeHtml = (str: string) => str.replace(/[&<>"']/g, (c) => escapeMap[c]);
+export default function remarkMermaid(): Plugin<[], any> {
+    const escapeMap: Record<string, string> = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+    };
 
-export const mermaid = () => (tree:any) => {
-	visit(tree, 'code', (node) => {
-		if (node.lang !== 'mermaid') return;
+    const escapeHtml = (str: string) => str.replace(/[&<>"']/g, (c) => escapeMap[c]);
+    const transformer = (tree: any, file: any) => {
+        visit(tree, 'code', (node) => {
+            if (node.lang !== 'mermaid') return;
 
-		node.type = 'html';
-		node.value = dedent`
-      <div class="mermaid" data-content="${escapeHtml(node.value)}">
-        <p>Loading graph...</p>
-      </div>
+            node.type = 'html';
+            node.value = `
+      <pre class="mermaid">
+        ${escapeHtml(node.value)}
+      </pre>
     `;
-	});
-};
+        });
+    }
+
+    return function attacher() {
+        return transformer;
+    }
+}
