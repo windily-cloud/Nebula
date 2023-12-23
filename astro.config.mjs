@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, passthroughImageService } from "astro/config";
 import starlight from "@astrojs/starlight";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -84,4 +84,7 @@ export default defineConfig({
         ],
         rehypePlugins: [rehypeMathJaxSvg],
     },
+    image:{
+        service: passthroughImageService(),
+    }
 });

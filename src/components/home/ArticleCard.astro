@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon'
-const imgUrl = 'src/assets/bt.jpg';
+const BASE_URL = import.meta.env.BASE_URL
+const imgUrl = BASE_URL +  '/assets/bt.jpg';
 const text = '安装与了解目前的版本是：6.6.1在终端打印消息：终端效果：log4的日志默认由：时间 级别 类型 - 日志内容 组成这里有了第一个概念，级别，log4可配置的级别一共有九个，这里找了一个参考图：image.png除了  外，其他七个级别从低到高如上图所示，log4只会输出同级别或者高级别的日志，效果如下：此时想去输出  日志，但是设置的级别是，log4不会输出比设置低级的日志。第二个概念是类型，log4可以对我们的日志进行分类，回到上面的代码：此时输出的类型的 可以在 getLogger 传入类型名称，使打印出来的日志带上类型：这个类型在log4中叫 ，可以配置，详细配置下面讲。上面只是lo...'
 
 ---
