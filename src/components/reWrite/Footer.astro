@@ -1,0 +1,44 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import EditLink from '@astrojs/starlight/components/EditLink.astro';
+import LastUpdated from '@astrojs/starlight/components/LastUpdated.astro';
+import Pagination from '@astrojs/starlight/components/Pagination.astro';
+---
+
+<footer>
+	<div class="meta sl-flex">
+		<EditLink {...Astro.props} />
+		<LastUpdated {...Astro.props} />
+	</div>
+	<Pagination {...Astro.props} />
+	<div class="bottom-wrapper">
+		<div class="text">© 2022-2023 PKMer All Rights Reserved — 京ICP备2023005152号 京公网安备 11010702002494号</div>
+	</div>
+</footer>
+
+<style>
+	.meta {
+		gap: 0.75rem 3rem;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		padding: 1rem;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-3);
+		border-top: 1.5px solid #dbdcde;
+	}
+	.meta > :global(p:only-child) {
+		margin-inline-start: auto;
+	}
+
+	.bottom-wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1rem 0;
+		background-color: #F6F7F9;
+	}
+	.bottom-wrapper .text {
+		font-size: var(--sl-text-sm);
+		color: #8F9BB3;
+	}
+</style>

@@ -48,6 +48,7 @@ export default defineConfig({
             components: {
                 ContentPanel: './src/components/reWrite/ContentPanel.astro',
                 MarkdownContent: './src/components/reWrite/MarkdownContent.astro',
+                Footer: './src/components/reWrite/Footer.astro',
             },
             head: [
                 {
