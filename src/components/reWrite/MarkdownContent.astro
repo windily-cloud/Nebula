@@ -1,0 +1,19 @@
+---
+import Default from "@astrojs/starlight/components/MarkdownContent.astro"
+import type { Props } from '@astrojs/starlight/props';
+const notHomepage = Astro.props.slug !== '';
+---
+
+{
+  notHomepage ? (
+  <div class="empty-markdown"><slot /></div>
+  ) : (
+    <Default {...Astro.props}>
+      <slot />
+    </Default>
+  )
+}
+
+
+
+

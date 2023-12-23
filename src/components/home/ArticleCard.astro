@@ -1,0 +1,94 @@
+---
+import { Icon } from 'astro-icon'
+const imgUrl = 'src/assets/bt.jpg';
+const text = '安装与了解目前的版本是：6.6.1在终端打印消息：终端效果：log4的日志默认由：时间 级别 类型 - 日志内容 组成这里有了第一个概念，级别，log4可配置的级别一共有九个，这里找了一个参考图：image.png除了  外，其他七个级别从低到高如上图所示，log4只会输出同级别或者高级别的日志，效果如下：此时想去输出  日志，但是设置的级别是，log4不会输出比设置低级的日志。第二个概念是类型，log4可以对我们的日志进行分类，回到上面的代码：此时输出的类型的 可以在 getLogger 传入类型名称，使打印出来的日志带上类型：这个类型在log4中叫 ，可以配置，详细配置下面讲。上面只是lo...'
+
+---
+
+<div class="artical-card-wrapper">
+  {imgUrl && <div class="img">
+    <img src={imgUrl} alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" />  
+  </div>}
+  <div class="abstract-wrapper">
+    <h2>node项目log4js进行日志记录</h2>
+    <div class="tags">
+      <span class="tag">node</span>
+      <span class="tag">log4js</span>
+    </div>
+    <div class="content">{text}</div>
+    <div class="publish-info">
+      <Icon name="ph:clock" width="1rem" />
+      <span>发布于 2023-12-20 22：36：59</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .artical-card-wrapper {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 15px;
+    background-color: #fff;
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+  }
+  .artical-card-wrapper:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+  }
+
+  .artical-card-wrapper .img {
+    width: 30%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #eee;
+  }
+  .abstract-wrapper {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .img {
+    width: 240px;
+    height: 160px;
+    flex: 0 0 auto;
+    background-size: cover;
+    background-position: center;
+  }
+  h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #fff;
+    background-color: #1890ff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+  }
+
+  .content {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    color: rgb(102 102 102);
+    font-size: .875rem;
+    line-height: 1.25rem;
+  }
+  .publish-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: rgb(102 102 102);
+    /* 单独置底 */
+    margin-top: auto;
+    justify-self: flex-end;
+  }
+</style>

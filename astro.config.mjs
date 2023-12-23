@@ -38,7 +38,11 @@ export default defineConfig({
         directory: "规划"
       }
     }],
-    customCss: ["./src/styles/base.css"]
+    customCss: ["./src/styles/base.css"],
+    components: {
+      ContentPanel: './src/components/reWrite/ContentPanel.astro',
+      MarkdownContent: './src/components/reWrite/MarkdownContent.astro',
+    }
   })],
   markdown: {
     remarkPlugins: [remarkGfm, remarkMath, callouts, remarkTextHighlight(), [wikiLinkPlugin, {
@@ -50,5 +54,5 @@ export default defineConfig({
       }
     }]],
     rehypePlugins: [rehypeMathJaxSvg]
-  }
+  },
 });

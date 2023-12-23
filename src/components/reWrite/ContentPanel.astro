@@ -1,0 +1,23 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import Default from '@astrojs/starlight/components/ContentPanel.astro'
+const notHomepage = Astro.props.slug !== '';
+---
+
+{
+  notHomepage ? (
+  <div class="cuContentPanel"><slot /></div>
+  ) : (
+    <Default {...Astro.props}>
+      <slot />
+    </Default>
+  )
+}
+
+<style>
+  .cuContentPanel {
+    #_top {
+      display: none;
+    }
+  }
+</style>

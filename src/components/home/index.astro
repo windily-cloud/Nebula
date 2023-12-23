@@ -1,0 +1,52 @@
+---
+import UserCard from "./UserCard.astro";
+import ArticleCard from "./ArticleCard.astro";
+
+---
+
+<div class="home-container-wrapper">
+  <div class="home-container">
+    <div class="left">
+      <UserCard></UserCard>
+    </div>
+    <div class="right">
+      <ArticleCard></ArticleCard>
+      <ArticleCard></ArticleCard>
+      <ArticleCard></ArticleCard>
+    </div>
+  </div>
+</div>
+
+<style>
+  body {
+    line-height: 1;
+  }
+  .home-container-wrapper {
+    width: 100%;
+    min-height: calc(100vh - 64px);
+    background: #e5f1fd;
+    display: flow-root;
+  }
+
+  .home-container {
+    max-width: 1220px;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .right,
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .left  {
+    width: 300px;
+  }
+  .right {
+    flex: 1 1 auto;
+  }
+</style>

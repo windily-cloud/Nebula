@@ -1,0 +1,121 @@
+---
+import { Icon } from 'astro-icon'
+---
+
+<div class="card-wrapper">
+  <div class="avatar-wrapper">
+    <img class="avatar" src="src/assets/avatar.png" alt="">
+  </div>
+  <div class="name">芹</div>
+  <div class="motto">世界等同于你</div>
+  <div class="tags">
+    <div class="tag">
+      <div class="num">7</div>
+      <div class="tag-name">文章</div>
+    </div>
+    <div class="tag">
+      <div class="num">9</div>
+      <div class="tag-name">标签</div>
+    </div>
+  </div>
+  <div class="btn">个人主页</div>
+  <div class="links">
+    <Icon name="mdi:github" />
+    <Icon name="mdi:wechat" color="#28C445" />
+    <Icon name="entypo-social:qq-with-circle" color="#30A5DD" />
+    <Icon name="line-md:email-twotone" color="#608BE9" />
+  </div>
+</div>
+
+<style>
+  .card-wrapper {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card-wrapper > * {
+    width: fit-content ;
+    margin: 0 auto;
+  }
+  .avatar-wrapper {
+    width: fit-content;
+  }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+  }
+
+  .name {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  .motto {
+    font-size: 0.9em;
+  }
+
+  .tags {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+  .tag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tag .num {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  .tag-name {
+    font-size: 0.8em;
+    color: rgb(156, 160, 163);
+  }
+  .btn {
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #65B0FF;
+    color: #ffffff;
+    margin: 0 auto;
+    cursor: pointer;
+    user-select: none;
+  }
+  .btn:active {
+    transform: scale(0.95);
+    transition: all 0.3s;
+  }
+
+  .btn:hover {
+    background-color: #4F9AFF;
+  }
+  .links {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .links > * {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .links > *:hover {
+    transform: scale(1.2);
+  }
+  
+</style>
